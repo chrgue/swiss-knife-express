@@ -16,7 +16,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: ${{ GITHUB_ENV.GITHUB_REPOSITORY }}
+        repository: ${{ GITHUB_REPOSITORY }}
         tags: latest
         push: true
         
