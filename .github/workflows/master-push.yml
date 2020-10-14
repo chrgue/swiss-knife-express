@@ -1,4 +1,4 @@
-name: Master Push
+name: Docker Image CI
 
 on:
   push:
@@ -26,5 +26,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USER }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
           repository: ${{ env.GITHUB_REPOSITORY }}
+
         
         
