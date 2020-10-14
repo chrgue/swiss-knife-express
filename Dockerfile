@@ -10,9 +10,6 @@ RUN npm install
 # copy source files
 COPY . .
 
-# run build
-RUN npm run build
-
 # numeric representation of 'node' user provided by the base image
 USER 1000
 
