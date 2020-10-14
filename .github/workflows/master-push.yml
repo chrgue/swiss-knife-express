@@ -34,5 +34,5 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          tags: chgue/swiss-knife-express
+          tags: chrgue/swiss-knife-express
           push: true
