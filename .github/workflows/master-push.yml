@@ -34,5 +34,5 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - uses: docker/build-push-action@v2
         with:
-          tags: ${{ env.GITHUB_REPOSITORY }}
+          tags: chrgue/swiss-knife-express:latest
           push: true
