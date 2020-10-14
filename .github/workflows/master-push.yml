@@ -34,5 +34,5 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          tags: ${{ env.GITHUB_REPOSITORY }}:latest"
+          tags: ${{ env.GITHUB_REPOSITORY }}
           push: true
