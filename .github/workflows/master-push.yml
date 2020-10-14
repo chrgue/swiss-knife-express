@@ -1,23 +1,30 @@
-name: Docker Image CI
+name: Master Push
 
 on:
   push:
     branches: [ master ]
 jobs:
-
-  build:
-
+  build_and_test:
+    name: "Build & Test Application"
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Push Docker Image
-      uses: docker/build-push-action@v1.1.1
-      with:
-        username: ${{ secrets.DOCKER_HUB_USER }}
-        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: ${{ env.GITHUB_REPOSITORY }}
-        tags: latest
-        push: true
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+  docker:
+    name: "Build & Push Docker Image"
+    needs: [node_ci]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/build-push-action@v1.1.1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USER }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          repository: ${{ env.GITHUB_REPOSITORY }}
         
         
