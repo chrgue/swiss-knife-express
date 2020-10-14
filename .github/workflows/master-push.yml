@@ -16,7 +16,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: $GITHUB_REPOSITORY
+        repository: chrgue/express
         tags: latest
         push: true
         
